@@ -10,12 +10,12 @@ import UIKit
 
 class TasksViewController: UIViewController {
     
-    var currentTasks = [Task]()
+    var currentTasks = [(index: Int, task: Task)]()
     
-    var dictFilter : [Int: ((Task)->(Bool))] = [
-        0 : { $0.status == .todo },
-        1 : { $0.status == .inprogress },
-        2 : { $0.status == .done }
+    var dictFilter : [Int: (((Int, Task))->(Bool))] = [
+        0 : { $0.1.status == .todo },
+        1 : { $0.1.status == .inprogress },
+        2 : { $0.1.status == .done }
     ]
 
     @IBOutlet weak var tasksTableView: UITableView!
@@ -23,7 +23,10 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var taskStatusControl: UISegmentedControl!
     
     func reload(){
-        currentTasks = DataStorage.standard.getData().filter(dictFilter[taskStatusControl.selectedSegmentIndex]!)
+        currentTasks = DataStorage.standard.getData().enumerated()
+            .filter(dictFilter[taskStatusControl.selectedSegmentIndex]!)
+            .map{ ($0.offset, $0.element) }
+        
         tasksTableView.reloadData()
     }
     
@@ -45,7 +48,7 @@ class TasksViewController: UIViewController {
     }
     
     @objc func createNewTask(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CreateTask") as! NewTaskViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NewTaskViewController") as! NewTaskViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -67,22 +70,33 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskViewCell
-        cell.fill(with: currentTasks[indexPath.row])
+        cell.fill(with: currentTasks[indexPath.row].task)
         return cell
         
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NewTaskViewController") as! NewTaskViewController
+        
+        vc.currentTask = currentTasks[indexPath.row]
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
-//    {
-//
-//    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
+    {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
+            
+            guard let element = self?.currentTasks.remove(at: indexPath.row) else { return }
+            DataStorage.standard.deleteData(at: element.index)
+            self?.tasksTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        return [deleteAction]
+    }
 }
 

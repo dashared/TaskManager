@@ -21,9 +21,12 @@ class TaskViewCell: UITableViewCell {
         // Initialization code
     }
     
+    /// Method to fill up the content of the cell
+    ///
+    /// - Parameter task: The task to be displayed in the cell
     func fill(with task: Task){
         taskNameLabel.text = task.name
-        dateLabel.text = "due to \(task.dueDate)"
+        dateLabel.text = "due to \(task.dueDate.toStringFormat())"
         infoLabel.text = task.info
     }
 }

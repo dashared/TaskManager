@@ -18,7 +18,7 @@ protocol StoredData {
     
     func addData(_ data: Element)
     
-    func changeData(at index: Int, with status: TaskStatus)
+    func changeData(at index: Int, with newData: Task)
     
     func deleteData(at index: Int)
 }
@@ -65,10 +65,11 @@ class DataStorage: StoredData {
         saveData(with: dataArr)
     }
     
-    func changeData(at index: Int, with status: TaskStatus)
+    func changeData(at index: Int, with newData: Task)
     {
         var data = getData()
-        data[index].status = status
+        data[index] = newData
+        print("\(index) \(newData)")
         saveData(with: data)
     }
     

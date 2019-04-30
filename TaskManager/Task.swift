@@ -21,10 +21,10 @@ struct Task: TextDescriptive {
     
     var name: String
     var info: String
-    var dueDate: String
+    var dueDate: Date
     var status: TaskStatus
     
-    init(name: String, info: String, date: String, status: TaskStatus = .todo) {
+    init(name: String, info: String, date: Date, status: TaskStatus = .todo) {
         self.dueDate = date
         self.name = name
         self.info = info
@@ -32,10 +32,10 @@ struct Task: TextDescriptive {
     }
     
     init(from dictinary: [String:Any?]) {
-        self.dueDate = dictinary[TaskFields.date.rawValue] as? String ?? ""
+        self.dueDate = dictinary[TaskFields.date.rawValue] as? Date ?? Date()
         self.name = dictinary[TaskFields.name.rawValue] as? String ?? ""
         self.info = dictinary[TaskFields.info.rawValue] as? String ?? "Me"
-        self.status = dictinary[TaskFields.status.rawValue] as? TaskStatus ?? .todo
+        self.status = TaskStatus(rawValue: dictinary[TaskFields.status.rawValue] as? Int ?? 0) ?? .todo
     }
     
     func toDictionary() -> [String: Any] {
@@ -56,8 +56,20 @@ enum TaskFields: String {
 }
 
 
-enum TaskStatus: String {
-    case inprogress
-    case done
-    case todo 
+enum TaskStatus: Int {
+    case inprogress = 1
+    case done = 2
+    case todo = 0
+}
+
+
+extension Date {
+    
+    /// Extention method to present date in a string format dd MMM yyyy
+    func toStringFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.string(from: self)
+    }
+    
 }
