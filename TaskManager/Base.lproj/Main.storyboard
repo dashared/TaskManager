@@ -122,22 +122,22 @@
                                 </segments>
                             </segmentedControl>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="CvE-Uf-MVI">
-                                <rect key="frame" x="0.0" y="181" width="414" height="162"/>
+                                <rect key="frame" x="0.0" y="146" width="414" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="gSK-xd-daA"/>
+                                    <constraint firstAttribute="height" constant="140" id="gSK-xd-daA"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="578155182.83710599">
                                     <!--2019-04-28 14:39:42 +0000-->
                                 </date>
                             </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ikp-Oy-JJN">
-                                <rect key="frame" x="20" y="351" width="374" height="511"/>
+                                <rect key="frame" x="20" y="294" width="374" height="552"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXZ-PN-5IZ">
-                                <rect key="frame" x="20" y="143" width="374" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Eoe-vv-wAj"/>
@@ -158,9 +158,9 @@
                             <constraint firstItem="CvE-Uf-MVI" firstAttribute="top" secondItem="VXZ-PN-5IZ" secondAttribute="bottom" constant="8" id="SD7-ZD-VPp"/>
                             <constraint firstItem="eZc-vJ-seT" firstAttribute="trailing" secondItem="BQa-1S-HmJ" secondAttribute="trailing" constant="20" id="bgu-VG-hFM"/>
                             <constraint firstItem="BQa-1S-HmJ" firstAttribute="top" secondItem="eZc-vJ-seT" secondAttribute="top" constant="20" id="cUp-1S-VIX"/>
-                            <constraint firstItem="VXZ-PN-5IZ" firstAttribute="top" secondItem="BQa-1S-HmJ" secondAttribute="bottom" constant="51" id="ev1-hx-6eO"/>
+                            <constraint firstItem="VXZ-PN-5IZ" firstAttribute="top" secondItem="BQa-1S-HmJ" secondAttribute="bottom" constant="16" id="ev1-hx-6eO"/>
                             <constraint firstItem="CvE-Uf-MVI" firstAttribute="leading" secondItem="eZc-vJ-seT" secondAttribute="leading" id="fQN-Tb-YFe"/>
-                            <constraint firstItem="eZc-vJ-seT" firstAttribute="bottom" secondItem="Ikp-Oy-JJN" secondAttribute="bottom" id="hGX-an-YAY"/>
+                            <constraint firstItem="eZc-vJ-seT" firstAttribute="bottom" secondItem="Ikp-Oy-JJN" secondAttribute="bottom" constant="16" id="hGX-an-YAY"/>
                             <constraint firstItem="eZc-vJ-seT" firstAttribute="trailing" secondItem="VXZ-PN-5IZ" secondAttribute="trailing" constant="20" id="rye-6s-K4S"/>
                             <constraint firstItem="Ikp-Oy-JJN" firstAttribute="top" secondItem="CvE-Uf-MVI" secondAttribute="bottom" constant="8" id="vzU-qc-PpS"/>
                             <constraint firstItem="CvE-Uf-MVI" firstAttribute="trailing" secondItem="eZc-vJ-seT" secondAttribute="trailing" id="xc6-Eb-iib"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TaskInfoKit
 
 class TaskViewCell: UITableViewCell {
 

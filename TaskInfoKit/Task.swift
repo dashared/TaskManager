@@ -13,32 +13,32 @@ protocol TextDescriptive {
     static var key: String { get }
 }
 
-struct Task: TextDescriptive {
+public struct Task: TextDescriptive {
     
     static var key: String {
         return "Task"
     }
     
-    var name: String
-    var info: String
-    var dueDate: Date
-    var status: TaskStatus
+    public var name: String
+    public var info: String
+    public var dueDate: Date
+    public var status: TaskStatus
     
-    init(name: String, info: String, date: Date, status: TaskStatus = .todo) {
+    public init(name: String, info: String, date: Date, status: TaskStatus = .todo) {
         self.dueDate = date
         self.name = name
         self.info = info
         self.status = status
     }
     
-    init(from dictinary: [String:Any?]) {
+    public init(from dictinary: [String:Any?]) {
         self.dueDate = dictinary[TaskFields.date.rawValue] as? Date ?? Date()
         self.name = dictinary[TaskFields.name.rawValue] as? String ?? ""
         self.info = dictinary[TaskFields.info.rawValue] as? String ?? "Me"
         self.status = TaskStatus(rawValue: dictinary[TaskFields.status.rawValue] as? Int ?? 0) ?? .todo
     }
     
-    func toDictionary() -> [String: Any] {
+    public func toDictionary() -> [String: Any] {
         return [
             TaskFields.date.rawValue: dueDate,
             TaskFields.name.rawValue: name,
@@ -48,7 +48,7 @@ struct Task: TextDescriptive {
     }
 }
 
-enum TaskFields: String {
+public enum TaskFields: String {
     case date = "date"
     case name = "name"
     case info = "info"
@@ -56,7 +56,7 @@ enum TaskFields: String {
 }
 
 
-enum TaskStatus: Int {
+public enum TaskStatus: Int {
     case inprogress = 1
     case done = 2
     case todo = 0
@@ -66,7 +66,7 @@ enum TaskStatus: Int {
 extension Date {
     
     /// Extention method to present date in a string format dd MMM yyyy
-    func toStringFormat() -> String {
+    public func toStringFormat() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         return dateFormatter.string(from: self)

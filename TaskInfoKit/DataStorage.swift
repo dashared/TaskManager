@@ -12,7 +12,7 @@ protocol StoredData {
     
     associatedtype Element: TextDescriptive
     
-    func getData() -> [Element]
+    func getDataFromDataBase() -> [Element]
     
     func saveData(with new: [Element])
     
@@ -31,16 +31,19 @@ protocol StoredData {
      3. Delete tasks
      4. Change tasks
  */
-class DataStorage: StoredData {
+public class DataStorage: StoredData {
+    
+    let dataBase = UserDefaults(suiteName: "group.rednikina.com.drHSE.TaskManager")
     
     typealias Element = Task
     
     private init(){}
     
-    static let standard = DataStorage()
+    public static let standard = DataStorage()
     
-    func getData() -> [Task] {
-        let dictionaries = UserDefaults.standard.array(forKey: Element.key) as? [[String:Any?]] ?? []
+    public func getDataFromDataBase() -> [Task] {
+        
+        let dictionaries = dataBase!.array(forKey: Element.key) as? [[String:Any?]] ?? []
         
         var gettableData: [Task] = []
         
@@ -51,30 +54,32 @@ class DataStorage: StoredData {
         return gettableData
     }
     
-    func saveData(with new: [Task]) {
+    public func saveData(with new: [Task])
+    {
         var dictionaries: [[String: Any?]] = []
+        
         for d in new {
             dictionaries.append(d.toDictionary())
         }
-        UserDefaults.standard.set(dictionaries, forKey: Element.key)
+        
+        dataBase?.set(dictionaries, forKey: Element.key)
     }
     
-    func addData(_ data: Task) {
-        var dataArr = getData()
+    public func addData(_ data: Task) {
+        var dataArr = getDataFromDataBase()
         dataArr.append(data)
         saveData(with: dataArr)
     }
     
-    func changeData(at index: Int, with newData: Task)
+    public func changeData(at index: Int, with newData: Task)
     {
-        var data = getData()
+        var data = getDataFromDataBase()
         data[index] = newData
-        print("\(index) \(newData)")
         saveData(with: data)
     }
     
-    func deleteData(at index: Int) {
-        var data = getData()
+    public func deleteData(at index: Int) {
+        var data = getDataFromDataBase()
         data.remove(at: index)
         saveData(with: data)
     }

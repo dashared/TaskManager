@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TaskInfoKit
 
 class TasksViewController: UIViewController {
     
@@ -23,7 +24,7 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var taskStatusControl: UISegmentedControl!
     
     func reload(){
-        currentTasks = DataStorage.standard.getData().enumerated()
+        currentTasks = DataStorage.standard.getDataFromDataBase().enumerated()
             .filter(dictFilter[taskStatusControl.selectedSegmentIndex]!)
             .map{ ($0.offset, $0.element) }
         
