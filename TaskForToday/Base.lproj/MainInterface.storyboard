@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TaskForToday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2H-jf-oj5">
@@ -24,41 +24,52 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For today:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV3-AM-6QQ">
-                                <rect key="frame" x="16" y="15" width="81" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VN-cr-AcF">
-                                <rect key="frame" x="16" y="53" width="42" height="21"/>
+                                <rect key="frame" x="16" y="55" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWt-9H-raw">
+                                <rect key="frame" x="16" y="17" width="232" height="30"/>
+                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8jh-YF-ddO"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="3" minY="2" maxX="3" maxY="0.0"/>
+                                <state key="normal" title=" Click me to open task for today: ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCurrentTask:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Nhh-vi-We0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="F2H-jf-oj5" secondAttribute="trailing" constant="16" id="AJx-UD-LG2"/>
                             <constraint firstItem="F2H-jf-oj5" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="9" id="CET-ah-yff"/>
                             <constraint firstItem="F2H-jf-oj5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9VN-cr-AcF" secondAttribute="trailing" constant="20" id="HYP-OT-bqh"/>
-                            <constraint firstItem="bV3-AM-6QQ" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="15" id="j4k-Yr-21K"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="bV3-AM-6QQ" secondAttribute="trailing" constant="223" id="kAl-50-0ER"/>
-                            <constraint firstItem="bV3-AM-6QQ" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="o8e-RH-21L"/>
-                            <constraint firstItem="9VN-cr-AcF" firstAttribute="top" secondItem="bV3-AM-6QQ" secondAttribute="bottom" constant="17" id="qfk-vx-uN9"/>
+                            <constraint firstItem="pWt-9H-raw" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="LyN-59-mBW"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="top" secondItem="pWt-9H-raw" secondAttribute="top" constant="27" id="gmE-46-sNN"/>
+                            <constraint firstItem="9VN-cr-AcF" firstAttribute="top" secondItem="pWt-9H-raw" secondAttribute="bottom" constant="8" id="uer-wQ-cPv"/>
                             <constraint firstItem="9VN-cr-AcF" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="wH4-Co-AOe"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="pWt-9H-raw" secondAttribute="trailing" constant="72" id="yz1-K6-aij"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="100"/>
+                    <size key="freeformSize" width="320" height="90"/>
                     <connections>
                         <outlet property="nameLabel" destination="9VN-cr-AcF" id="xnP-Jo-vsr"/>
                         <outlet property="statusLabel" destination="F2H-jf-oj5" id="Mii-wB-Mdy"/>
+                        <outlet property="taskButton" destination="pWt-9H-raw" id="bGt-eA-SkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>

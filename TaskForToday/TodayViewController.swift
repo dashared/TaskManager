@@ -12,6 +12,8 @@ import TaskInfoKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+    @IBOutlet weak var taskButton: UIButton!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -22,6 +24,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         reload()
     }
     
+    @IBAction func openCurrentTask(_ sender: UIButton) {
+        
+        let url = URL(string: "TaskManager://")!
+        extensionContext?.open(url, completionHandler: nil)
+        
+    }
+    /// Function to reload data when viewDidLoad is called
+    /// Gets all info and filters needed information
     func reload(){
         let now = Date()
         print("\(DataStorage.standard.getDataFromDataBase())")
