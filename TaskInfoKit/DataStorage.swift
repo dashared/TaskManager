@@ -67,7 +67,7 @@ public class DataStorage: StoredData {
     
     public func addData(_ data: Task) {
         var dataArr = getDataFromDataBase()
-        dataArr.append(data)
+        dataArr.insert(data, at: 0)
         saveData(with: dataArr)
     }
     

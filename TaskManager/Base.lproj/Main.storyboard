@@ -122,26 +122,27 @@
                                 </segments>
                             </segmentedControl>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="CvE-Uf-MVI">
-                                <rect key="frame" x="0.0" y="146" width="414" height="140"/>
+                                <rect key="frame" x="0.0" y="146" width="414" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="gSK-xd-daA"/>
+                                    <constraint firstAttribute="height" constant="120" id="gSK-xd-daA"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="578155182.83710599">
                                     <!--2019-04-28 14:39:42 +0000-->
                                 </date>
                             </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ikp-Oy-JJN">
-                                <rect key="frame" x="20" y="294" width="374" height="552"/>
+                                <rect key="frame" x="20" y="274" width="374" height="572"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXZ-PN-5IZ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXZ-PN-5IZ">
                                 <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Eoe-vv-wAj"/>
                                 </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
