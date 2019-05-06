@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="TaskForToday" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2H-jf-oj5">
+                                <rect key="frame" x="262" y="101" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VN-cr-AcF">
+                                <rect key="frame" x="16" y="100" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWt-9H-raw">
+                                <rect key="frame" x="16" y="52" width="232" height="30"/>
+                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UA8-lG-1Gg"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="3" minY="2" maxX="3" maxY="0.0"/>
+                                <state key="normal" title=" Click me to open task for today: ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCurrentTask:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Nhh-vi-We0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="F2H-jf-oj5" secondAttribute="trailing" constant="16" id="AJx-UD-LG2"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="top" secondItem="pWt-9H-raw" secondAttribute="top" constant="-8" id="BXa-Pk-QrE"/>
+                            <constraint firstItem="F2H-jf-oj5" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="57" id="CET-ah-yff"/>
+                            <constraint firstItem="F2H-jf-oj5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9VN-cr-AcF" secondAttribute="trailing" constant="20" id="HYP-OT-bqh"/>
+                            <constraint firstItem="9VN-cr-AcF" firstAttribute="top" secondItem="pWt-9H-raw" secondAttribute="bottom" constant="18" id="KaE-fN-zd4"/>
+                            <constraint firstItem="pWt-9H-raw" firstAttribute="leading" secondItem="9VN-cr-AcF" secondAttribute="leading" id="gpY-MK-Vao"/>
+                            <constraint firstItem="9VN-cr-AcF" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="wH4-Co-AOe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="143"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="9VN-cr-AcF" id="xnP-Jo-vsr"/>
+                        <outlet property="statusLabel" destination="F2H-jf-oj5" id="Mii-wB-Mdy"/>
+                        <outlet property="taskButton" destination="pWt-9H-raw" id="bGt-eA-SkS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+</document>
